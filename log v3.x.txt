@@ -5,14 +5,106 @@
 
 具体修改内容可参考：
 
-   * [http://www.ztree.me/v3/api.php zTree v3.x API 文档]
+   * [http://www.treejs.cn/v3/api.php zTree v3.x API 文档]
 
-   * [http://www.ztree.me/v3/demo.php#_101 zTree v3.x Demo 演示]
+   * [http://www.treejs.cn/v3/demo.php#_101 zTree v3.x Demo 演示]
 
-   * [http://www.ztree.me/v3/faq.php#_101 zTree v3.x 常见问题]
+   * [http://www.treejs.cn/v3/faq.php#_101 zTree v3.x 常见问题]
 
 </font>
 
+*2020.04.29* v3.5.44
+* update TypeScript type definition  Thanks @bseddon 
+  
+*2020.04.04* v3.5.43
+  * fixed TypeScript type definition  Thanks @UtillYou 
+  * Update demo 'super/keyboard_navigation.html' Thanks @bseddon
+  * Update demo 'core/searchNodes.html' Thanks @bseddon
+  * add setting.view.nodeClasses Thanks @bseddon
+
+*2020.03.02* v3.5.42
+  * add demo 'super/keyboard_navigation.html'  Thanks @bseddon
+
+*2020.01.19* v3.5.42
+   * merge PullRequest(fixed 'HTMLElement undefined' error)     Thanks @ChangJin0520
+   * merge PullRequest(Add TypeScript type definition)     Thanks @Itroads
+   * fixed awesomeStyle    Thanks @Jermyk93
+
+*2020.01.06* v3.5.41
+   * [修改] 修正 API
+
+*2019.10.11* v3.5.41
+   * [修改] 从 源码中 移除 个人邮箱
+
+*2019.01.18* v3.5.40
+   * [修改] fuzzySearch.js    Thanks @yigger
+
+*2019.01.17* v3.5.39
+   * [修改] data.nodeChecked & data.isHidden & data.nodeIsParent 的 返回值规范为 boolean   Thanks @xinhochen & @田biubiu & @FelixFly
+
+*2019.01.08* v3.5.38
+   * [修改] data.nodeChecked & data.isHidden 的 返回值规范为 boolean   Thanks @xinhochen
+
+*2018.12.10* v3.5.37
+   * [修改] fuzzySearch.js & Demo   Thanks @SadWood & @JerryWang24
+
+*2018.08.21* v3.5.37
+   * [修改] 替换 scrollIntoViewIfNeeded 方法    Thanks @jocki84
+   * [修改] 部分 API 文字错误
+
+*2018.06.26* v3.5.36
+   * [增加] setting.async.headers & setting.async.xhrFields
+
+*2018.04.24* v3.5.35
+   * [增加] Demo：模糊搜索（Fuzzy Search）  Thanks @bigablecat
+
+*2018.03.30* v3.5.35
+   * [修改] 关闭拖拽方法内的 eventMouseDown.preventDefault(); 避免影响 zTree 外部的事件  Thanks @heyusysu
+
+*2018.02.12* v3.5.34
+   * [修改] nodeChecked 方法内的错误  Thanks @勇哥
+
+*2018.01.30* v3.5.33
+   * [修改] nodeIsParent 方法内的错误  Thanks @netmou
+
+*2018.01.06* v3.5.32
+   * [修改] setting.async.autoParam / otherParam 支持 function
+   * [修改] isParent / isHidden 允许自定义属性名称 setting.data.key.isParent / isHidden
+
+*2017.12.28* v3.5.31
+   * [修改] 初始化节点数据的规则，支持 treeNode { name: "Node2", children: []}, 情况下自动设置为 isParent = true
+
+*2017.11.11* v3.5.30
+   * [修改] scrollIntoViewIfNeeded 方法对 IE7 的兼容
+
+*2017.06.23* v3.5.29
+   * [修改] 拖拽操作后 body.css("cursor", "auto"); 修改为 body.css("cursor", "");（感谢 Jim）
+
+*2017.06.19* v3.5.29
+   * [增加] reAsyncChildNodesPromise(parentNode, reloadType, isSilent) 方法支持 ES6 Promise
+   * [修改] reAsyncChildNodes 方法增加 callback 参数
+
+*2017.01.20* v3.5.28
+   * [修改] scrollIntoViewIfNeeded 方法对 IE8 的兼容
+
+*2016.12.27* v3.5.27
+   * [修改] addNodes 方法设置 index 参数后，导致 treeNode.isLastNode 错误
+
+*2016.11.03* v3.5.26
+   * [修改] 使用 scrollIntoViewIfNeeded 替代 scrollIntoView，兼容各种浏览器
+
+*2016.09.27* v3.5.25
+   * [修改] ajax 异步加载支持 contentType = 'application/json'
+
+*2016.06.06* v3.5.24
+   * [修改] selectNode 方法中 某些情况下，isSilent 参数无效
+   * [修改] 数据中 id = 'length'时， 导致 transformTozTreeFormat() 方法异常
+
+*2016.04.08* v3.5.23
+   * [修改] expandCollapseNode 方法被 gulp 压缩后，在 IE8 上会导致溢出
+
+*2016.04.06* v3.5.23
+   * [修改] 替换 arguments.callee 避免 'use strict' 严格模式下报错
 
 *2016.04.01* v3.5.23
    * [修改] selectNode 方法 增加 isSilent 参数，可以禁止 选中节点时，自动滚动到视图
@@ -97,8 +189,8 @@
 *2013.03.11* v3.5.12
    * [修改] 由于 jquery 1.9 中移除 event.srcElement 导致的 js 报错的bug。
    * [修改] 在异步加载模式下，使用 moveNode 方法，且 moveType != "inner" 时，也会导致 targetNode 自动加载子节点的 bug
-   * [修改] 对已经显示的节点(nochecked=true)使用 showNodes 或 showNode 方法后，导致勾选框出现的bug。
-   * [修改] 对已经隐藏的节点(nochecked=false)使用 hideNodes 或 hideNode 方法后，导致勾选框消失的bug。
+   * [修改] 对已经显示的节点(nocheck=true)使用 showNodes 或 showNode 方法后，导致勾选框出现的bug。
+   * [修改] 对已经隐藏的节点(nocheck=false)使用 hideNodes 或 hideNode 方法后，导致勾选框消失的bug。
    * [修改] getNodesByParamFuzzy 支持 大小写模糊。
    * [修改] className 结构，提取 _consts.className.BUTTON / LEVEL / ICO_LOADING / SWITCH，便于快速修改 css 冲突。
      例如：与 WordPress 产生冲突后，直接修改 core 中的 "button" 和 "level" 即可。  Issue: https://github.com/zTree/zTree_v3/issues/2
@@ -169,8 +261,8 @@
 *2012.05.13* v3.2
    * [增加] setting.data.key.url 允许修改 treeNode.url 属性
    * [增加] getNodesByFilter(filter, isSingle) 方法
-   * [增加] "与其他 DOM 拖拽互动" 的 Demo (http://www.ztree.me/v3/demo.php#_511)
-   * [增加] "异步加载模式下全部展开" 的 Demo (http://www.ztree.me/v3/demo.php#_512)
+   * [增加] "与其他 DOM 拖拽互动" 的 Demo (http://www.treejs.cn/v3/demo.php#_511)
+   * [增加] "异步加载模式下全部展开" 的 Demo (http://www.treejs.cn/v3/demo.php#_512)
 
    * [修改] 代码结构，将 addNodes、removeNode、removeChildNodes 方法 和 beforeRemove、onRemove 回调 转移到 core 内
    * [修改] IE7的环境下无子节点的父节点反复展开出现多余空行的 bug
@@ -247,4 +339,4 @@
    * [修正] setting 配置更加合理，并且增加了若干项配置参数
    * [修正] treeNode 节点数据的属性更加合理，并且增加了一些方法
    * [修正] 拖拽操作更加灵活方便，更容易制定自己的规则
-   * [修正] 其他若干修改，详细对比请参考 url：[http://www.ztree.me/v3/faq.php#_101 zTree v3.0 常见问题]
+   * [修正] 其他若干修改，详细对比请参考 url：[http://www.treejs.cn/v3/faq.php#_101 zTree v3.0 常见问题]
